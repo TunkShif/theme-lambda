@@ -1,4 +1,4 @@
-# name: RobbyRussel
+# name: Lambda
 #
 # You can override some default options in your config.fish:
 #   set -g theme_display_git_untracked no
@@ -24,11 +24,12 @@ function fish_prompt
   set -l blue (set_color -o blue)
   set -l green (set_color -o green)
   set -l normal (set_color normal)
+  set -l blue_bg (set_color -b blue)
 
   if test $last_status = 0
-      set arrow "$green➜ "
+      set lambda "$green""λ "
   else
-      set arrow "$red➜ "
+      set lambda "$red""λ "
   end
   set -l cwd $cyan(basename (prompt_pwd))
 
@@ -42,6 +43,6 @@ function fish_prompt
     end
   end
 
-  echo -n -s $arrow ' ' $cwd $git_info $normal ' '
+  echo -n -s $lambda ' ' $cwd $git_info $normal ' '
 end
 
